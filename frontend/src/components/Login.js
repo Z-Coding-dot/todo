@@ -14,20 +14,18 @@ function Login() {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = isLogin ? '/login' : '/signup';
     try {
       const response = await axios.post(`http://localhost:5000${endpoint}`, formData);
-
+  
       if (isLogin) {
-        // If login is successful, store token and navigate to Todo page
         localStorage.setItem('token', response.data.token);
         navigate('/todo');
       } else {
-        // If sign-up is successful, prompt user to log in
         alert('Sign Up Successful! Please log in.');
-        setIsLogin(true); // Switch to login mode
+        setIsLogin(true);
       }
     } catch (error) {
       setErrorMessage(error.response?.data?.error || 'Something went wrong! Please try again.');

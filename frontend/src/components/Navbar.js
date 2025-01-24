@@ -36,6 +36,9 @@ function Navbar() {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link text-light"  to="/profile">Profile</Link> {/* Add this line */}
+            </li>
           </ul>
         </div>
       </div>
